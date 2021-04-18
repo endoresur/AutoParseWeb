@@ -16,6 +16,16 @@ namespace AutoParseWeb.Core
         public ParseExtractor()
         { }
 
+        public ParseExtractor(IParser parser, ISettings settings)
+        {
+            Parser = parser;
+            Settings = settings;
+        }
+
+        public ParseExtractor(Container.WebSiteDataContainer container) : this(container.Parser, container.Settings)
+        { }            
+        
+
         public List<string> Data { get; set; } = new List<string>();
 
         public IParser Parser 
@@ -58,20 +68,20 @@ namespace AutoParseWeb.Core
 
         private async void Extract()
         {
-            if (parser == null || settings == null)
+            if (Parser == null || Settings == null)
             {
-                IsRun = false;
+                IsRun = false;                
                 return;
             }
 
-            for (int i = settings.StartPage; i <= settings.EndPage; i++)
+            for (int i = Settings.StartPage; i <= Settings.EndPage; i++)
             {
                 if (IsRun)
                 {
                     string source = await loader.GetHtmlCode(i);
                     HtmlParser htmlParser = new HtmlParser();
                     IHtmlDocument document = await htmlParser.ParseDocumentAsync(source);
-                    Data.AddRange(parser.Parse(document));
+                    Data.AddRange(Parser.Parse(document));
                     NewData?.Invoke(this, Data.ToArray());
                 }
             }

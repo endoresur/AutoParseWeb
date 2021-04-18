@@ -1,18 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace AutoParseWeb.Container
 {
+    [Serializable]
     class WebSitesList
     {
         static WebSitesList instance;
-        static List<WebSiteDataContainer> containers;
+        List<WebSiteDataContainer> containers;
+        BinaryFormatter formatter;
 
         private WebSitesList()
-        { }
+        {
+            containers = new List<WebSiteDataContainer>();
+            formatter = new BinaryFormatter();
+            RecoverData();
+        }
 
         public static WebSitesList Instance
         {
@@ -20,8 +28,7 @@ namespace AutoParseWeb.Container
             {
                 if (instance == null)
                 {
-                    instance = new WebSitesList();
-                    containers = new List<WebSiteDataContainer>();
+                    instance = new WebSitesList();                    
                 }
                 return instance;
             }
@@ -48,6 +55,22 @@ namespace AutoParseWeb.Container
                 return true;
             }
             return false;
+        }
+
+        public void SaveData()
+        {
+            using (var file = new FileStream("sites.bin", FileMode.OpenOrCreate))
+            {
+                formatter.Serialize(file, containers);
+            }
+        }
+
+        public void RecoverData()
+        {
+            using (var file = new FileStream("sites.bin", FileMode.Open))
+            {
+                containers = formatter.Deserialize(file) as List<WebSiteDataContainer>;
+            }
         }
 
         public bool DeleteSite(WebSiteDataContainer container)

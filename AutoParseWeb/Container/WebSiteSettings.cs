@@ -1,7 +1,9 @@
 ﻿using AutoParseWeb.Core;
+using System;
 
 namespace AutoParseWeb.Container
 {
+    [Serializable]
     class WebSiteSettings : ISettings
     {
         public WebSiteSettings(string url) : this(url, null, 1, 1)

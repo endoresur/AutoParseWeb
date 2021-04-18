@@ -10,6 +10,7 @@ using AutoParseWeb.Core;
 
 namespace AutoParseWeb.Container
 {
+    [Serializable]
     class WebSiteParser : IParser
     {
         public string TagName { get; set; }
