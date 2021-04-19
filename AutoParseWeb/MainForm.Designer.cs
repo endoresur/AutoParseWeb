@@ -33,23 +33,27 @@ namespace AutoParseWeb
             this.bStart = new System.Windows.Forms.Button();
             this.listBox = new System.Windows.Forms.ListBox();
             this.bStop = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.bPeriod = new System.Windows.Forms.Button();
+            this.bSave = new System.Windows.Forms.Button();
+            this.bAddSite = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // comboBox
             // 
             this.comboBox.FormattingEnabled = true;
-            this.comboBox.Location = new System.Drawing.Point(647, 35);
+            this.comboBox.Location = new System.Drawing.Point(30, 43);
             this.comboBox.Name = "comboBox";
-            this.comboBox.Size = new System.Drawing.Size(121, 21);
+            this.comboBox.Size = new System.Drawing.Size(161, 21);
             this.comboBox.TabIndex = 0;
             // 
             // bStart
             // 
-            this.bStart.Location = new System.Drawing.Point(647, 88);
+            this.bStart.Location = new System.Drawing.Point(30, 174);
             this.bStart.Name = "bStart";
-            this.bStart.Size = new System.Drawing.Size(75, 23);
+            this.bStart.Size = new System.Drawing.Size(161, 23);
             this.bStart.TabIndex = 1;
-            this.bStart.Text = "Start";
+            this.bStart.Text = "Начать парсинг";
             this.bStart.UseVisualStyleBackColor = true;
             this.bStart.Click += new System.EventHandler(this.bStart_Click);
             // 
@@ -57,26 +61,68 @@ namespace AutoParseWeb
             // 
             this.listBox.FormattingEnabled = true;
             this.listBox.HorizontalScrollbar = true;
-            this.listBox.Location = new System.Drawing.Point(28, 22);
+            this.listBox.Location = new System.Drawing.Point(223, 12);
             this.listBox.Name = "listBox";
-            this.listBox.Size = new System.Drawing.Size(585, 407);
+            this.listBox.Size = new System.Drawing.Size(585, 433);
             this.listBox.TabIndex = 2;
             // 
             // bStop
             // 
-            this.bStop.Location = new System.Drawing.Point(647, 136);
+            this.bStop.Location = new System.Drawing.Point(30, 422);
             this.bStop.Name = "bStop";
-            this.bStop.Size = new System.Drawing.Size(75, 23);
+            this.bStop.Size = new System.Drawing.Size(161, 23);
             this.bStop.TabIndex = 3;
-            this.bStop.Text = "Stop";
+            this.bStop.Text = "Сохранить и выйти";
             this.bStop.UseVisualStyleBackColor = true;
             this.bStop.Click += new System.EventHandler(this.bStop_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(30, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(86, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Выберите сайт:";
+            // 
+            // bPeriod
+            // 
+            this.bPeriod.Location = new System.Drawing.Point(30, 214);
+            this.bPeriod.Name = "bPeriod";
+            this.bPeriod.Size = new System.Drawing.Size(161, 23);
+            this.bPeriod.TabIndex = 5;
+            this.bPeriod.Text = "Создать периодичность";
+            this.bPeriod.UseVisualStyleBackColor = true;
+            // 
+            // bSave
+            // 
+            this.bSave.Enabled = false;
+            this.bSave.Location = new System.Drawing.Point(30, 253);
+            this.bSave.Name = "bSave";
+            this.bSave.Size = new System.Drawing.Size(161, 23);
+            this.bSave.TabIndex = 6;
+            this.bSave.Text = "Экспортировать данные";
+            this.bSave.UseVisualStyleBackColor = true;
+            // 
+            // bAddSite
+            // 
+            this.bAddSite.Location = new System.Drawing.Point(30, 70);
+            this.bAddSite.Name = "bAddSite";
+            this.bAddSite.Size = new System.Drawing.Size(161, 23);
+            this.bAddSite.TabIndex = 7;
+            this.bAddSite.Text = "Добавить сайт";
+            this.bAddSite.UseVisualStyleBackColor = true;
+            this.bAddSite.Click += new System.EventHandler(this.bAddSite_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(823, 463);
+            this.Controls.Add(this.bAddSite);
+            this.Controls.Add(this.bSave);
+            this.Controls.Add(this.bPeriod);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.bStop);
             this.Controls.Add(this.listBox);
             this.Controls.Add(this.bStart);
@@ -85,6 +131,7 @@ namespace AutoParseWeb
             this.Text = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -94,6 +141,10 @@ namespace AutoParseWeb
         private System.Windows.Forms.Button bStart;
         private System.Windows.Forms.ListBox listBox;
         private System.Windows.Forms.Button bStop;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button bPeriod;
+        private System.Windows.Forms.Button bSave;
+        private System.Windows.Forms.Button bAddSite;
     }
 }
 

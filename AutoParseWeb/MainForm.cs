@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using AutoParseWeb.Container;
 using AutoParseWeb.Core;
+using AutoParseWeb.Forms;
 
 
 namespace AutoParseWeb
@@ -28,14 +21,16 @@ namespace AutoParseWeb
         private void MainForm_Load(object sender, EventArgs e)
         {
             sitesList = WebSitesList.Instance;
-            
-            comboBox.Items.AddRange(sitesList.WebSites);
-            comboBox.SelectedItem = comboBox.Items[0];            
-            
+            RefreshItems();
             extractor = new ParseExtractor();            
-
-            //extractor.Complited += StopParsing;
             extractor.NewData += OutputData;
+        }
+
+        public void RefreshItems()
+        {
+            comboBox.Items.Clear();
+            comboBox.Items.AddRange(sitesList.WebSites);
+            comboBox.SelectedItem = comboBox.Items[0];
         }
 
         private void OutputData(object o, string[] lines) 
@@ -59,6 +54,12 @@ namespace AutoParseWeb
         {
             sitesList.SaveData();
             //extractor.StopParsing();
+        }
+
+        private void bAddSite_Click(object sender, EventArgs e)
+        {
+            new AddSiteForm().ShowDialog();
+            RefreshItems();
         }
     }
 }

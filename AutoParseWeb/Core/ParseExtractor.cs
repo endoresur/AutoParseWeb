@@ -2,7 +2,7 @@
 using AngleSharp.Html.Parser;
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
+using AutoParseWeb.Container;
 
 namespace AutoParseWeb.Core
 {
@@ -22,7 +22,7 @@ namespace AutoParseWeb.Core
             Settings = settings;
         }
 
-        public ParseExtractor(Container.WebSiteDataContainer container) : this(container.Parser, container.Settings)
+        public ParseExtractor(WebSiteDataContainer container) : this(container.Parser, container.Settings)
         { }            
         
 

@@ -44,7 +44,7 @@ namespace AutoParseWeb.Container
         public bool AddSite(string name, string url, string tagName, string containerName)
         {
             return AddSite(name, url, tagName, containerName, null, 1, 1);
-        }
+        }        
 
         public bool AddSite(string name, WebSiteSettings settings, WebSiteParser parser)
         {
@@ -55,7 +55,7 @@ namespace AutoParseWeb.Container
                 return true;
             }
             return false;
-        }
+        }        
 
         public void SaveData()
         {

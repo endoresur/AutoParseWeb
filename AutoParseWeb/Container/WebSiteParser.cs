@@ -18,8 +18,6 @@ namespace AutoParseWeb.Container
 
         public WebSiteParser(string tagName, string containerName)
         {
-            // TODO: проверка входных данных
-
             TagName = tagName;
             ContainerName = containerName;
         }
