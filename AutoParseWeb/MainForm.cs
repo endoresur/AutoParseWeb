@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Windows.Forms;
 using AutoParseWeb.Container;
 using AutoParseWeb.Core;
@@ -24,6 +25,7 @@ namespace AutoParseWeb
             RefreshItems();
             extractor = new ParseExtractor();            
             extractor.NewData += OutputData;
+            extractor.Complited += (o) => bSave.Enabled = true;
         }
 
         public void RefreshItems()
@@ -47,18 +49,51 @@ namespace AutoParseWeb
             extractor.Parser = site.Parser;
             extractor.Settings = site.Settings;
             
-            extractor.StartParsing();
+            extractor.StartParsing();            
         }
 
         private void bStop_Click(object sender, EventArgs e)
         {
-            sitesList.SaveData();
+            //sitesList.SaveData();
             //extractor.StopParsing();
+            Close();
         }
 
         private void bAddSite_Click(object sender, EventArgs e)
         {
             new AddSiteForm().ShowDialog();
+            RefreshItems();
+        }
+
+        private void bSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var dialog = new FolderBrowserDialog())
+                {
+                    if (dialog.ShowDialog() == DialogResult.OK)
+                    {
+                        string path = dialog.SelectedPath + "\\result.txt";
+                        using (var stream = new StreamWriter(path, false, System.Text.Encoding.UTF8))
+                        {
+                            foreach (var line in extractor.Data)
+                            {
+                                stream.WriteLine(line);
+                            }
+                        }
+                        MessageBox.Show("Данные успешно сохранены.");
+                    }
+                }                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void bChange_Click(object sender, EventArgs e)
+        {
+            new SiteSettingForm(comboBox.SelectedIndex).ShowDialog();
             RefreshItems();
         }
     }

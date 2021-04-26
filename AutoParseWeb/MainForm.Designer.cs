@@ -34,7 +34,7 @@ namespace AutoParseWeb
             this.listBox = new System.Windows.Forms.ListBox();
             this.bStop = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.bPeriod = new System.Windows.Forms.Button();
+            this.bChange = new System.Windows.Forms.Button();
             this.bSave = new System.Windows.Forms.Button();
             this.bAddSite = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -85,14 +85,15 @@ namespace AutoParseWeb
             this.label1.TabIndex = 4;
             this.label1.Text = "Выберите сайт:";
             // 
-            // bPeriod
+            // bChange
             // 
-            this.bPeriod.Location = new System.Drawing.Point(30, 214);
-            this.bPeriod.Name = "bPeriod";
-            this.bPeriod.Size = new System.Drawing.Size(161, 23);
-            this.bPeriod.TabIndex = 5;
-            this.bPeriod.Text = "Создать периодичность";
-            this.bPeriod.UseVisualStyleBackColor = true;
+            this.bChange.Location = new System.Drawing.Point(30, 214);
+            this.bChange.Name = "bChange";
+            this.bChange.Size = new System.Drawing.Size(161, 23);
+            this.bChange.TabIndex = 5;
+            this.bChange.Text = "Настройки сайта";
+            this.bChange.UseVisualStyleBackColor = true;
+            this.bChange.Click += new System.EventHandler(this.bChange_Click);
             // 
             // bSave
             // 
@@ -103,6 +104,7 @@ namespace AutoParseWeb
             this.bSave.TabIndex = 6;
             this.bSave.Text = "Экспортировать данные";
             this.bSave.UseVisualStyleBackColor = true;
+            this.bSave.Click += new System.EventHandler(this.bSave_Click);
             // 
             // bAddSite
             // 
@@ -121,7 +123,7 @@ namespace AutoParseWeb
             this.ClientSize = new System.Drawing.Size(823, 463);
             this.Controls.Add(this.bAddSite);
             this.Controls.Add(this.bSave);
-            this.Controls.Add(this.bPeriod);
+            this.Controls.Add(this.bChange);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.bStop);
             this.Controls.Add(this.listBox);
@@ -142,7 +144,7 @@ namespace AutoParseWeb
         private System.Windows.Forms.ListBox listBox;
         private System.Windows.Forms.Button bStop;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button bPeriod;
+        private System.Windows.Forms.Button bChange;
         private System.Windows.Forms.Button bSave;
         private System.Windows.Forms.Button bAddSite;
     }

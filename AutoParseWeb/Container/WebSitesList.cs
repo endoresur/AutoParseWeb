@@ -78,6 +78,18 @@ namespace AutoParseWeb.Container
             return containers.Remove(container);
         }
 
+        public bool OverwriteSiteData(int index, WebSiteDataContainer container)
+        {
+            if (containers.Count < index)
+            {
+                return false;
+            }
+            else
+            {
+                containers[index] = container;
+                return true;
+            }
+        }
 
         private bool Contains(string name)
         {

@@ -57,7 +57,7 @@ namespace AutoParseWeb.Forms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 13);
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(92, 13);
             this.label1.TabIndex = 0;
@@ -65,14 +65,14 @@ namespace AutoParseWeb.Forms
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(16, 30);
+            this.tbName.Location = new System.Drawing.Point(15, 26);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(193, 20);
             this.tbName.TabIndex = 1;
             // 
             // tbURL
             // 
-            this.tbURL.Location = new System.Drawing.Point(16, 70);
+            this.tbURL.Location = new System.Drawing.Point(15, 66);
             this.tbURL.Name = "tbURL";
             this.tbURL.Size = new System.Drawing.Size(193, 20);
             this.tbURL.TabIndex = 3;
@@ -80,7 +80,7 @@ namespace AutoParseWeb.Forms
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 53);
+            this.label2.Location = new System.Drawing.Point(12, 49);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 13);
             this.label2.TabIndex = 2;
@@ -88,7 +88,7 @@ namespace AutoParseWeb.Forms
             // 
             // tbTag
             // 
-            this.tbTag.Location = new System.Drawing.Point(16, 122);
+            this.tbTag.Location = new System.Drawing.Point(15, 118);
             this.tbTag.Name = "tbTag";
             this.tbTag.Size = new System.Drawing.Size(193, 20);
             this.tbTag.TabIndex = 5;
@@ -96,7 +96,7 @@ namespace AutoParseWeb.Forms
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 105);
+            this.label3.Location = new System.Drawing.Point(12, 101);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 13);
             this.label3.TabIndex = 4;
@@ -105,7 +105,7 @@ namespace AutoParseWeb.Forms
             // checkBox
             // 
             this.checkBox.AutoSize = true;
-            this.checkBox.Location = new System.Drawing.Point(16, 194);
+            this.checkBox.Location = new System.Drawing.Point(15, 190);
             this.checkBox.Name = "checkBox";
             this.checkBox.Size = new System.Drawing.Size(170, 17);
             this.checkBox.TabIndex = 6;
@@ -115,7 +115,7 @@ namespace AutoParseWeb.Forms
             // 
             // tbPage
             // 
-            this.tbPage.Location = new System.Drawing.Point(16, 234);
+            this.tbPage.Location = new System.Drawing.Point(15, 230);
             this.tbPage.Name = "tbPage";
             this.tbPage.Size = new System.Drawing.Size(193, 20);
             this.tbPage.TabIndex = 8;
@@ -123,7 +123,7 @@ namespace AutoParseWeb.Forms
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 217);
+            this.label4.Location = new System.Drawing.Point(12, 213);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(80, 13);
             this.label4.TabIndex = 7;
@@ -131,7 +131,7 @@ namespace AutoParseWeb.Forms
             // 
             // numStartPage
             // 
-            this.numStartPage.Location = new System.Drawing.Point(16, 273);
+            this.numStartPage.Location = new System.Drawing.Point(15, 269);
             this.numStartPage.Name = "numStartPage";
             this.numStartPage.Size = new System.Drawing.Size(59, 20);
             this.numStartPage.TabIndex = 9;
@@ -139,7 +139,7 @@ namespace AutoParseWeb.Forms
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 257);
+            this.label5.Location = new System.Drawing.Point(12, 253);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(115, 13);
             this.label5.TabIndex = 10;
@@ -148,7 +148,7 @@ namespace AutoParseWeb.Forms
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 296);
+            this.label6.Location = new System.Drawing.Point(12, 292);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(108, 13);
             this.label6.TabIndex = 12;
@@ -156,7 +156,7 @@ namespace AutoParseWeb.Forms
             // 
             // numEndPage
             // 
-            this.numEndPage.Location = new System.Drawing.Point(16, 312);
+            this.numEndPage.Location = new System.Drawing.Point(15, 308);
             this.numEndPage.Name = "numEndPage";
             this.numEndPage.Size = new System.Drawing.Size(59, 20);
             this.numEndPage.TabIndex = 11;
@@ -165,7 +165,7 @@ namespace AutoParseWeb.Forms
             // 
             this.panel.BackColor = System.Drawing.SystemColors.Control;
             this.panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel.Location = new System.Drawing.Point(16, 217);
+            this.panel.Location = new System.Drawing.Point(15, 213);
             this.panel.Name = "panel";
             this.panel.Size = new System.Drawing.Size(193, 115);
             this.panel.TabIndex = 13;
@@ -174,14 +174,14 @@ namespace AutoParseWeb.Forms
             // 
             this.listBox.FormattingEnabled = true;
             this.listBox.HorizontalScrollbar = true;
-            this.listBox.Location = new System.Drawing.Point(241, 62);
+            this.listBox.Location = new System.Drawing.Point(240, 58);
             this.listBox.Name = "listBox";
             this.listBox.Size = new System.Drawing.Size(350, 238);
             this.listBox.TabIndex = 14;
             // 
             // bTryParse
             // 
-            this.bTryParse.Location = new System.Drawing.Point(241, 30);
+            this.bTryParse.Location = new System.Drawing.Point(240, 26);
             this.bTryParse.Name = "bTryParse";
             this.bTryParse.Size = new System.Drawing.Size(120, 26);
             this.bTryParse.TabIndex = 15;
@@ -192,7 +192,7 @@ namespace AutoParseWeb.Forms
             // bAddndClose
             // 
             this.bAddndClose.Enabled = false;
-            this.bAddndClose.Location = new System.Drawing.Point(241, 312);
+            this.bAddndClose.Location = new System.Drawing.Point(240, 308);
             this.bAddndClose.Name = "bAddndClose";
             this.bAddndClose.Size = new System.Drawing.Size(172, 23);
             this.bAddndClose.TabIndex = 16;
@@ -202,7 +202,7 @@ namespace AutoParseWeb.Forms
             // 
             // bCancel
             // 
-            this.bCancel.Location = new System.Drawing.Point(419, 312);
+            this.bCancel.Location = new System.Drawing.Point(418, 308);
             this.bCancel.Name = "bCancel";
             this.bCancel.Size = new System.Drawing.Size(172, 23);
             this.bCancel.TabIndex = 17;
@@ -212,7 +212,7 @@ namespace AutoParseWeb.Forms
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(238, 13);
+            this.label7.Location = new System.Drawing.Point(237, 9);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(275, 13);
             this.label7.TabIndex = 18;
@@ -220,7 +220,7 @@ namespace AutoParseWeb.Forms
             // 
             // tbClass
             // 
-            this.tbClass.Location = new System.Drawing.Point(16, 162);
+            this.tbClass.Location = new System.Drawing.Point(15, 158);
             this.tbClass.Name = "tbClass";
             this.tbClass.Size = new System.Drawing.Size(193, 20);
             this.tbClass.TabIndex = 20;
@@ -228,7 +228,7 @@ namespace AutoParseWeb.Forms
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(13, 145);
+            this.label8.Location = new System.Drawing.Point(12, 141);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(102, 13);
             this.label8.TabIndex = 19;
