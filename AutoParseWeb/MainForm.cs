@@ -10,9 +10,8 @@ namespace AutoParseWeb
 {
     public partial class MainForm : Form
     {        
-        ParseExtractor extractor;
-        WebSitesList sitesList;
-
+        ParseExtractor _extractor;
+        WebSitesList _sitesList;
 
         public MainForm()
         {
@@ -21,17 +20,17 @@ namespace AutoParseWeb
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            sitesList = WebSitesList.Instance;
+            _sitesList = WebSitesList.Instance;
             RefreshItems();
-            extractor = new ParseExtractor();            
-            extractor.NewData += OutputData;
-            extractor.Complited += (o) => bSave.Enabled = true;
+            _extractor = new ParseExtractor();            
+            _extractor.NewData += OutputData;
+            _extractor.Complited += (o) => bSave.Enabled = true;
         }
 
         public void RefreshItems()
         {
             comboBox.Items.Clear();
-            comboBox.Items.AddRange(sitesList.WebSites);
+            comboBox.Items.AddRange(_sitesList.WebSites);
             comboBox.SelectedItem = comboBox.Items[0];
         }
 
@@ -43,13 +42,13 @@ namespace AutoParseWeb
         private void bStart_Click(object sender, EventArgs e) 
         {
             listBox.Items.Clear();
-            extractor.Data.Clear();
-            var site = sitesList.WebSites[comboBox.SelectedIndex];
+            _extractor.Data.Clear();
+            var site = _sitesList.WebSites[comboBox.SelectedIndex];
 
-            extractor.Parser = site.Parser;
-            extractor.Settings = site.Settings;
+            _extractor.Parser = site.Parser;
+            _extractor.Settings = site.Settings;
             
-            extractor.StartParsing();            
+            _extractor.StartParsing();            
         }
 
         private void bStop_Click(object sender, EventArgs e)
@@ -76,7 +75,7 @@ namespace AutoParseWeb
                         string path = dialog.SelectedPath + "\\result.txt";
                         using (var stream = new StreamWriter(path, false, System.Text.Encoding.UTF8))
                         {
-                            foreach (var line in extractor.Data)
+                            foreach (var line in _extractor.Data)
                             {
                                 stream.WriteLine(line);
                             }

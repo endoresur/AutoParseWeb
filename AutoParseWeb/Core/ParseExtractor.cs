@@ -8,9 +8,9 @@ namespace AutoParseWeb.Core
 {
     class ParseExtractor
     {
-        IParser parser;
-        ISettings settings;
-        HtmlLoader loader;
+        IParser _parser;
+        ISettings _settings;
+        HtmlLoader _loader;
 
 
         public ParseExtractor()
@@ -32,11 +32,11 @@ namespace AutoParseWeb.Core
         { 
             get 
             { 
-                return parser; 
+                return _parser; 
             } 
             set
             {
-                parser = value;
+                _parser = value;
             }
         }
 
@@ -44,11 +44,11 @@ namespace AutoParseWeb.Core
        
         public ISettings Settings
         {
-            get { return settings; }
+            get { return _settings; }
             set
             {
-                settings = value;
-                loader = new HtmlLoader(value);
+                _settings = value;
+                _loader = new HtmlLoader(value);
             }
         }
 
@@ -78,7 +78,7 @@ namespace AutoParseWeb.Core
             {
                 if (IsRun)
                 {
-                    string source = await loader.GetHtmlCode(i);
+                    string source = await _loader.GetHtmlCode(i);
                     HtmlParser htmlParser = new HtmlParser();
                     IHtmlDocument document = await htmlParser.ParseDocumentAsync(source);
                     Data.AddRange(Parser.Parse(document));

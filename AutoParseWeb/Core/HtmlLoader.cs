@@ -6,31 +6,31 @@ namespace AutoParseWeb.Core
 {
     class HtmlLoader
     {
-        HttpClient client;
-        string url;
-        bool isMultipage;
+        HttpClient _client;
+        string _url;
+        bool _isMultipage;
 
         public HtmlLoader(ISettings settings)
         {
-            client = new HttpClient();
-            client.DefaultRequestHeaders.Add("User-Agent", "C# App");
-            url = settings.URL + "/"; 
+            _client = new HttpClient();
+            _client.DefaultRequestHeaders.Add("User-Agent", "C# App");
+            _url = settings.URL + "/"; 
             if (settings.PageDesignation != null)
             {
-                url += settings.PageDesignation;
-                isMultipage = true;
+                _url += settings.PageDesignation;
+                _isMultipage = true;
             }
         }
 
         public async Task<string> GetHtmlCode(int page)
         {
-            string pageUrl = url;
-            if (isMultipage)
+            string pageUrl = _url;
+            if (_isMultipage)
             {
                 pageUrl += page.ToString();
             }
 
-            HttpResponseMessage httpResponse = await client.GetAsync(pageUrl);
+            HttpResponseMessage httpResponse = await _client.GetAsync(pageUrl);
             string data = default;
 
             if (httpResponse != null && httpResponse.StatusCode == HttpStatusCode.OK)

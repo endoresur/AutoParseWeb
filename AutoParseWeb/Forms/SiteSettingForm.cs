@@ -7,21 +7,21 @@ namespace AutoParseWeb.Forms
 {
     public partial class SiteSettingForm : Form
     {
-        int selected;
-        WebSitesList list;
-        WebSiteDataContainer container;
+        int _selected;
+        WebSitesList _list;
+        WebSiteDataContainer _container;
 
 
         public SiteSettingForm(int selected)
         {
-            this.selected = selected;
+            this._selected = selected;
             InitializeComponent();
-            list = WebSitesList.Instance;
+            _list = WebSitesList.Instance;
         }
 
         private void SiteSettingForm_Load(object sender, EventArgs e)
         {
-            FillFields(list.WebSites[selected]);
+            FillFields(_list.WebSites[_selected]);
 
 
 
@@ -47,7 +47,7 @@ namespace AutoParseWeb.Forms
         
         private void bDeleteSite_Click(object sender, EventArgs e)
         {
-            if (list.DeleteSite(list.WebSites[selected]))
+            if (_list.DeleteSite(_list.WebSites[_selected]))
             {
                 MessageBox.Show("Сайт успешно удалён.");
                 Close();
@@ -73,17 +73,17 @@ namespace AutoParseWeb.Forms
 
         private void bTryParse_Click(object sender, EventArgs e)
         {
-            container = new WebSiteDataContainer(tbName.Text);            
+            _container = new WebSiteDataContainer(tbName.Text);            
             if (string.IsNullOrEmpty(tbPage.Text))
             {
-                container.SetSettings(new WebSiteSettings(tbURL.Text));
+                _container.SetSettings(new WebSiteSettings(tbURL.Text));
             }
             else
             {
-                container.SetSettings(new WebSiteSettings(tbURL.Text, tbPage.Text, (int)numStartPage.Value, (int)numEndPage.Value));
+                _container.SetSettings(new WebSiteSettings(tbURL.Text, tbPage.Text, (int)numStartPage.Value, (int)numEndPage.Value));
             }
-            container.SetParseInfo(tbTag.Text, tbClass.Text);
-            ParseExtractor extractor = new ParseExtractor(container);
+            _container.SetParseInfo(tbTag.Text, tbClass.Text);
+            ParseExtractor extractor = new ParseExtractor(_container);
             extractor.StartParsing();
             extractor.NewData += OutputData;
         }
@@ -96,7 +96,7 @@ namespace AutoParseWeb.Forms
 
         private void bAddndClose_Click(object sender, EventArgs e)
         {
-            if (list.OverwriteSiteData(selected, container))
+            if (_list.OverwriteSiteData(_selected, _container))
             {
                 Close();
             }

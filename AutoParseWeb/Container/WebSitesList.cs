@@ -11,14 +11,14 @@ namespace AutoParseWeb.Container
     [Serializable]
     class WebSitesList
     {
-        static WebSitesList instance;
-        List<WebSiteDataContainer> containers;
-        BinaryFormatter formatter;
+        static WebSitesList _instance;
+        List<WebSiteDataContainer> _containers;
+        BinaryFormatter _formatter;
 
         private WebSitesList()
         {
-            containers = new List<WebSiteDataContainer>();
-            formatter = new BinaryFormatter();
+            _containers = new List<WebSiteDataContainer>();
+            _formatter = new BinaryFormatter();
             RecoverData();
         }
 
@@ -26,15 +26,15 @@ namespace AutoParseWeb.Container
         {
             get
             {
-                if (instance == null)
+                if (_instance == null)
                 {
-                    instance = new WebSitesList();                    
+                    _instance = new WebSitesList();                    
                 }
-                return instance;
+                return _instance;
             }
         }
 
-        public WebSiteDataContainer[] WebSites { get { return containers.ToArray(); } }
+        public WebSiteDataContainer[] WebSites { get { return _containers.ToArray(); } }
         
         public bool AddSite(string name, string url, string tagName, string containerName, string pageDesignation, int startPage, int endPage)
         {
@@ -51,7 +51,7 @@ namespace AutoParseWeb.Container
             var site = new WebSiteDataContainer(name);
             if (site.SetSettings(settings) && site.SetParseInfo(parser) && !Contains(name))
             {
-                containers.Add(site);
+                _containers.Add(site);
                 return true;
             }
             return false;
@@ -61,7 +61,7 @@ namespace AutoParseWeb.Container
         {
             using (var file = new FileStream("sites.bin", FileMode.OpenOrCreate))
             {
-                formatter.Serialize(file, containers);
+                _formatter.Serialize(file, _containers);
             }
         }
 
@@ -69,31 +69,31 @@ namespace AutoParseWeb.Container
         {
             using (var file = new FileStream("sites.bin", FileMode.Open))
             {
-                containers = formatter.Deserialize(file) as List<WebSiteDataContainer>;
+                _containers = _formatter.Deserialize(file) as List<WebSiteDataContainer>;
             }
         }
 
         public bool DeleteSite(WebSiteDataContainer container)
         {
-            return containers.Remove(container);
+            return _containers.Remove(container);
         }
 
         public bool OverwriteSiteData(int index, WebSiteDataContainer container)
         {
-            if (containers.Count < index)
+            if (_containers.Count < index)
             {
                 return false;
             }
             else
             {
-                containers[index] = container;
+                _containers[index] = container;
                 return true;
             }
         }
 
         private bool Contains(string name)
         {
-            foreach(var element in containers)
+            foreach(var element in _containers)
             {
                 if (element.Name == name)
                 {

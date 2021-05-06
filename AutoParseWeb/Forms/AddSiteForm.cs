@@ -7,9 +7,9 @@ namespace AutoParseWeb.Forms
 {
     public partial class AddSiteForm : Form
     {
-        ParseExtractor extractor;
-        WebSiteParser parser;
-        WebSiteSettings settings;
+        ParseExtractor _extractor;
+        WebSiteParser _parser;
+        WebSiteSettings _settings;
 
         public AddSiteForm()
         {
@@ -52,20 +52,20 @@ namespace AutoParseWeb.Forms
                 }
                 else
                 {
-                    settings = new WebSiteSettings(tbURL.Text, tbPage.Text, (int)numStartPage.Value, (int)numEndPage.Value);
+                    _settings = new WebSiteSettings(tbURL.Text, tbPage.Text, (int)numStartPage.Value, (int)numEndPage.Value);
                 }
             }
             else
             {
-                settings = new WebSiteSettings(tbURL.Text);
+                _settings = new WebSiteSettings(tbURL.Text);
             }           
 
             string tagName = tbTag.Text, containerName = tbClass.Text;            
-            parser = new WebSiteParser(tagName, containerName);            
+            _parser = new WebSiteParser(tagName, containerName);            
 
-            extractor = new ParseExtractor(parser, settings);
-            extractor.StartParsing();
-            extractor.NewData += OutputData;            
+            _extractor = new ParseExtractor(_parser, _settings);
+            _extractor.StartParsing();
+            _extractor.NewData += OutputData;            
         }
 
         private void OutputData(object o, string[] lines)
@@ -77,7 +77,7 @@ namespace AutoParseWeb.Forms
         private void bAddndClose_Click(object sender, EventArgs e)
         {
             var list = WebSitesList.Instance;
-            if (list.AddSite(tbName.Text, settings, parser))
+            if (list.AddSite(tbName.Text, _settings, _parser))
             {                
                 Close();
             }
