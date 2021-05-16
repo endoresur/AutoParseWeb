@@ -275,7 +275,7 @@ namespace AutoParseWeb.Forms
             this.MinimumSize = new System.Drawing.Size(621, 387);
             this.Name = "SiteSettingForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "SiteSettingForm";
+            this.Text = "Настройки сайта";
             this.Load += new System.EventHandler(this.SiteSettingForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numEndPage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numStartPage)).EndInit();
