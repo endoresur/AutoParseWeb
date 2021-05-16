@@ -129,6 +129,7 @@ namespace AutoParseWeb
             this.Controls.Add(this.listBox);
             this.Controls.Add(this.bStart);
             this.Controls.Add(this.comboBox);
+            this.MinimumSize = new System.Drawing.Size(839, 502);
             this.Name = "MainForm";
             this.Text = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
