@@ -6,9 +6,9 @@ namespace AutoParseWeb.Core
 {
     class HtmlLoader
     {
-        HttpClient _client;
-        string _url;
-        bool _isMultipage;
+        HttpClient _client; // для отправки HTTP запросов и получения HTTP ответов
+        string _url; // адрес страницы
+        bool _isMultipage; // показывает, нужно ли парсить несколько страниц
 
         public HtmlLoader(ISettings settings)
         {
@@ -30,17 +30,16 @@ namespace AutoParseWeb.Core
                 pageUrl += page.ToString();
             }
 
-            HttpResponseMessage httpResponse = await _client.GetAsync(pageUrl);
+            HttpResponseMessage httpResponse = await _client.GetAsync(pageUrl); // получаем ответ с сайта
             string data = default;
 
             if (httpResponse != null && httpResponse.StatusCode == HttpStatusCode.OK)
             {
-                data = await httpResponse.Content.ReadAsStringAsync();
+                data = await httpResponse.Content.ReadAsStringAsync(); // помещаем код страницы в поле data
             }
 
             return data;
         }
-
     }
 }
 

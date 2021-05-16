@@ -13,6 +13,8 @@ namespace AutoParseWeb.Container
         BinaryFormatter _formatter;
 
         private WebSitesList()
+            // приватный конструктор, чтобы экземпляр класса можно было 
+            // создать только внутри самого класса
         {
             _containers = new List<WebSiteDataContainer>();
             _formatter = new BinaryFormatter();
@@ -20,11 +22,13 @@ namespace AutoParseWeb.Container
         }
 
         public static WebSitesList Instance
+            // статический метод можно вызвать без экземпляра класса
         {
             get
             {
                 if (_instance == null)
                 {
+                    // создает единственный экземпляр класса
                     _instance = new WebSitesList();                    
                 }
                 return _instance;

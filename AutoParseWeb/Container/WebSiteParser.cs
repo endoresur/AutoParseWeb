@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AngleSharp;
 using AngleSharp.Dom;
 using AngleSharp.Html.Dom;
 using AutoParseWeb.Core;
@@ -24,11 +21,14 @@ namespace AutoParseWeb.Container
 
         public string[] Parse(IHtmlDocument document)
         {
+            // для хранения данных
             List<string> lines = new List<string>();            
 
+            // получаем данные
             IEnumerable<IElement> items = document.All.Where(m => m.LocalName == TagName && m.ClassList.Contains(ContainerName));
 
             foreach (var item in items)
+                // добавляем данные в коллекцию
                 lines.Add(item.TextContent);
 
             return lines.ToArray();

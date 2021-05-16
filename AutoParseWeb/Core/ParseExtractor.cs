@@ -76,16 +76,16 @@ namespace AutoParseWeb.Core
 
             for (int i = Settings.StartPage; i <= Settings.EndPage; i++)
             {
-                if (IsRun)
+                if (IsRun) //проверяем активность парсера
                 {
-                    string source = await _loader.GetHtmlCode(i);
+                    string source = await _loader.GetHtmlCode(i); //Получаем код страницы
                     HtmlParser htmlParser = new HtmlParser();
                     IHtmlDocument document = await htmlParser.ParseDocumentAsync(source);
-                    Data.AddRange(Parser.Parse(document));
-                    NewData?.Invoke(this, Data.ToArray());
+                    Data.AddRange(Parser.Parse(document)); // сохраняем полученные данные 
+                    NewData?.Invoke(this, Data.ToArray()); // возвращаем полученные за итерацию данные
                 }
             }
-            Complited?.Invoke(this);
+            Complited?.Invoke(this); // событие отвечающее за информирование о завершении парсинга
             IsRun = false;
         }
 
