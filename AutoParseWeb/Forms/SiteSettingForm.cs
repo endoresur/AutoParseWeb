@@ -73,6 +73,13 @@ namespace AutoParseWeb.Forms
 
         private void bTryParse_Click(object sender, EventArgs e)
         {
+            if (String.IsNullOrEmpty(tbName.Text) && String.IsNullOrEmpty(tbURL.Text) &&
+                (String.IsNullOrEmpty(tbTag.Text) || String.IsNullOrEmpty(tbClass.Text)))
+            {
+                MessageBox.Show("Необходимо заполнить все обязательные поля!");
+                return;
+            }
+
             _container = new WebSiteDataContainer(tbName.Text);            
             if (string.IsNullOrEmpty(tbPage.Text))
             {

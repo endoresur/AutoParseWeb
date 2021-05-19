@@ -38,11 +38,13 @@ namespace AutoParseWeb.Forms
 
         private void bTryParse_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(tbName.Text) || String.IsNullOrEmpty(tbURL.Text) || String.IsNullOrEmpty(tbTag.Text))
+            
+            if (String.IsNullOrEmpty(tbName.Text) && String.IsNullOrEmpty(tbURL.Text) &&
+                (String.IsNullOrEmpty(tbTag.Text) || String.IsNullOrEmpty(tbClass.Text)))
             {
                 MessageBox.Show("Необходимо заполнить все обязательные поля!");
                 return;
-            }
+            }            
             if (checkBox.Checked)
             {
                 if (String.IsNullOrEmpty(tbPage.Text) || numStartPage.Value < 0 ||
@@ -70,6 +72,7 @@ namespace AutoParseWeb.Forms
 
         private void OutputData(object o, string[] lines)
         {
+            listBox.Items.Clear();
             listBox.Items.AddRange(lines);
             bAddndClose.Enabled = true;
         }
