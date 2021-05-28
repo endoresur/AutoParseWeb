@@ -103,6 +103,7 @@ namespace AutoParseWeb.Forms
 
         private void bAddndClose_Click(object sender, EventArgs e)
         {
+            
             if (_list.OverwriteSiteData(_selected, _container))
             {
                 _list.AlphabeticalSorting();

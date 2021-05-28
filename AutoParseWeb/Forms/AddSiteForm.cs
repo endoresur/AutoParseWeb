@@ -79,7 +79,7 @@ namespace AutoParseWeb.Forms
 
         private void bAddndClose_Click(object sender, EventArgs e)
         {
-            var list = WebSitesList.Instance;
+            var list = WebSitesList.Instance;            
             if (list.AddSite(tbName.Text, _settings, _parser))
             {
                 list.AlphabeticalSorting();

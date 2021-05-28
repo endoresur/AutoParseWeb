@@ -106,7 +106,54 @@ namespace AutoParseWeb.Container
 
         public void AlphabeticalSorting()
         {
+            bool notSorted = true;
+            while(notSorted)
+            {                
+                for (int i = 0; i < _containers.Count - 1; i++)
+                {
+                    int first = i, second = i + 1;
+                    notSorted = false;
+                    if (_containers[first].Name[0] > _containers[second].Name[0])
+                    {
+                        notSorted = true;
+                        Swap(first, second);
+                        continue;
+                    }
+                    else if (_containers[first].Name[0] < _containers[second].Name[0])
+                    {
+                        notSorted = false;
+                        continue;
+                    }
+                    else
+                    {
+                        if (_containers[first].Name.Length < _containers[second].Name.Length)
+                        {
+                            Swap(first, second);
+                            continue;
+                        }
+                        for (int j = 0; j < _containers[first].Name.Length && j < _containers[second].Name.Length; j++)
+                        {
+                            if (_containers[first].Name[j] != _containers[second].Name[j] && _containers[first].Name[j] > _containers[second].Name[j])
+                            {
+                                Swap(first, second);
+                                break;
+                            }                            
+                        }
+                    }
+                }
+            }
+        }
 
+        private void Swap(int first, int second)
+        {
+            var array = _containers.ToArray();
+
+            var temp = array[first];
+            array[first] = array[second];
+            array[second] = temp;
+
+            _containers.Clear();
+            _containers.AddRange(array);
         }
 
     }
