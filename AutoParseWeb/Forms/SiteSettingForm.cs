@@ -105,6 +105,7 @@ namespace AutoParseWeb.Forms
         {
             if (_list.OverwriteSiteData(_selected, _container))
             {
+                _list.AlphabeticalSorting();
                 Close();
             }
             else

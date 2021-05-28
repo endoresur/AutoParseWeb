@@ -53,8 +53,8 @@ namespace AutoParseWeb
 
         private void bStop_Click(object sender, EventArgs e)
         {
-            //sitesList.SaveData();
-            //extractor.StopParsing();
+            _sitesList.SaveData();
+            _extractor.StopParsing();
             Close();
         }
 

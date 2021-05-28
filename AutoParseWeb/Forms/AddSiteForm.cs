@@ -81,7 +81,8 @@ namespace AutoParseWeb.Forms
         {
             var list = WebSitesList.Instance;
             if (list.AddSite(tbName.Text, _settings, _parser))
-            {                
+            {
+                list.AlphabeticalSorting();
                 Close();
             }
             else
